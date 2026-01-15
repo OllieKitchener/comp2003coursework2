@@ -1,0 +1,101 @@
+{
+    "profiles": [
+        {
+            "username": "Grace Hopper",
+            "first_name": "Grace",
+            "last_name": "Hopper",
+            "email": "grace@plymouth.ac.uk",
+            "phone": "07731269941",
+            "about_me": "I am an randomly generated test account.",
+            "location": "Dartmoor",
+            "height": 175,
+            "weight": 88,
+            "birthday": "1970-03-10"
+        },
+        {
+            "username": "Tim Berners-Lee",
+            "first_name": "Tim",
+            "last_name": "Berners-Lee",
+            "email": "tim@plymouth.ac.uk",
+            "phone": "07589621395",
+            "about_me": "I am an randomly generated test account.",
+            "location": "Plymouth",
+            "height": 186,
+            "weight": 69,
+            "birthday": "1981-03-21"
+        },
+        {
+            "username": "Ada Lovelace",
+            "first_name": "Ada",
+            "last_name": "Lovelace",
+            "email": "ada@plymouth.ac.uk",
+            "phone": "07465692263",
+            "about_me": "I am an randomly generated test account.",
+            "location": "Snowdonia",
+            "height": 173,
+            "weight": 79,
+            "birthday": "2011-03-09"
+        }
+    ],
+    "preferences": [
+        {
+            "username": "Grace Hopper",
+            "activity_time_preference": "speed",
+            "marketing_language": "English",
+            "units": "imperial"
+        },
+        {
+            "username": "Tim Berners-Lee",
+            "activity_time_preference": "speed",
+            "marketing_language": "English",
+            "units": "imperial"
+        },
+        {
+            "username": "Ada Lovelace",
+            "activity_time_preference": "pace",
+            "marketing_language": "English",
+            "units": "metric"
+        }
+    ],
+    "favourites": [
+        {
+            "username": "Grace Hopper",
+            "activityID": 5
+        },
+        {
+            "username": "Tim Berners-Lee",
+            "activityID": 5
+        },
+        {
+            "username": "Ada Lovelace",
+            "activityID": 5
+        }
+    ],
+    "activity_master": [
+        {
+            "activityID": 1,
+            "name": "Trail Running",
+            "description": "Running on off-road paths."
+        },
+        {
+            "activityID": 2,
+            "name": "Mountain Biking",
+            "description": "Cycling through rugged terrains."
+        },
+        {
+            "activityID": 3,
+            "name": "Wild Camping",
+            "description": "Staying overnight in the wilderness."
+        },
+        {
+            "activityID": 4,
+            "name": "Rock Climbing",
+            "description": "Scaling natural rock formations."
+        },
+        {
+            "activityID": 5,
+            "name": "Bird Watching",
+            "description": "Observing local wildlife."
+        }
+    ]
+}

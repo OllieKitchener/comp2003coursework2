@@ -1,0 +1,166 @@
+openapi: 3.0.0
+info:
+  title: "Trail Profile Service"
+  description: "API for managing profiles, preferences, and favourite activities"
+  version: "1.0.0"
+
+servers:
+  - url: "http://localhost:8080/api"
+    description: "Local development server"
+
+components:
+  schemas:
+    Profile:
+      type: "object"
+      required:
+        - email
+        - username
+      properties:
+        username:
+          type: "string"
+          example: "Hiker123"
+        first_name:
+          type: "string"
+          example: "Alex"
+        last_name:
+          type: "string"
+          example: "Smith"
+        email:
+          type: "string"
+          example: "test@plymouth.ac.uk"
+        phone:
+          type: "string"
+          example: "07123456789"
+        about_me:
+          type: "string"
+          example: "Love exploring the trails."
+        location:
+          type: "string"
+          example: "Dartmoor"
+        height:
+          type: "number"
+          description: "Height in cm"
+          example: 180
+        weight:
+          type: "number"
+          description: "Weight in kg"
+          example: 75
+        birthday:
+          type: "string"
+          format: "date"
+          example: "1995-05-20"
+        activity_time_preference:
+          type: "string"
+          enum: [speed, pace]
+          default: "speed"
+        marketing_language:
+          type: "string"
+          example: "English"
+        units:
+          type: "string"
+          enum: [metric, imperial]
+          default: "metric"
+
+paths:
+  /profiles:
+    get:
+      operationId: "profiles.read_all"
+      tags:
+        - "Profiles"
+      summary: "Read the full database (All groups)"
+      responses:
+        "200":
+          description: "OK"
+
+    post:
+      operationId: "profiles.create"
+      tags:
+        - "Profiles"
+      summary: "Create a new profile with preferences"
+      requestBody:
+          required: true
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Profile"
+      responses:
+        "201":
+          description: "Created"
+        "406":
+          description: "Username already exists"
+
+  /profiles/{username}:
+    get:
+      operationId: "profiles.read_one"
+      tags:
+        - "Profiles"
+      summary: "Get full profile (Details + Preferences + Favourite Activities)"
+      parameters:
+        - name: username
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: "Successfully read full profile"
+        "404":
+          description: "User not found"
+
+    put:
+      operationId: "profiles.update"
+      tags:
+        - "Profiles"
+      summary: "Update existing details or preferences"
+      parameters:
+        - name: username
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+          required: true
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Profile"
+      responses:
+        "200":
+          description: "Updated"
+        "404":
+          description: "User not found"
+
+    delete:
+      operationId: "profiles.delete"
+      tags:
+        - "Profiles"
+      summary: "Remove profile from all records"
+      parameters:
+        - name: username
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: "Deleted"
+        "404":
+          description: "User not found"
+
+  /activities/random:
+    get:
+      operationId: "profiles.get_random_activity"
+      tags:
+        - "Activities"
+      summary: "Get a random activity suggestion from the master list"
+      responses:
+        "200":
+          description: "Random Activity"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  activityID: {type: integer}
+                  name: {type: string}
+                  description: {type: string}
